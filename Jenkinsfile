@@ -62,7 +62,8 @@ pipeline {
                 script {
                     def response = httprequest (
                         url: "http://$KUBE_MASTER_IP:8081/",
-                    )    timeout=30
+                        timeout=30
+                        )
                     
                     if (response.status != 200)
                        error ("Smoke Test against Canary Deployment Failed.")
